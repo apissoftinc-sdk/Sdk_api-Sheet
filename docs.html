@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación de la API de AppSheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        .header {
+            background-color: #00796b;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #00796b;
+        }
+        h1 {
+            border-bottom: 2px solid #00796b;
+            padding-bottom: 10px;
+        }
+        pre {
+            background-color: #e8e8e8;
+            padding: 15px;
+            border-left: 4px solid #00796b;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #00796b;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .cta-button:hover {
+            background-color: #004d40;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #777;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>📖 Documentación de la API de AppSheet</h1>
+        <p>Guía completa para la integración de tus plugins</p>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="cta-button">← Volver a los Planes</a>
+        
+        <h2>Cómo Funciona la Integración</h2>
+        <p>La API de AppSheet es una interfaz <strong>RESTful</strong> que permite a servicios externos interactuar con una aplicación de AppSheet. Con la API, puedes automatizar procesos y sincronizar datos en tiempo real.</p>
+        
+        <h3>1. Habilitar la API y Obtener Credenciales</h3>
+        <p>Para conectar tu aplicación, necesitas el **App ID** y la **Application Access Key**. Sigue estos pasos:</p>
+        <ol>
+            <li>Inicia sesión en AppSheet y abre tu aplicación.</li>
+            <li>Ve a <strong>`Settings` > `Integrations`</strong>.</li>
+            <li>En la sección <strong>`IN: from cloud services to your app`</strong>, activa **`Enable`**.</li>
+            <li>Copia el **`App ID`** y crea una **`Application Access Key`**. Guarda esta clave en un lugar seguro.</li>
+        </ol>
+
+        <h3>2. Estructura de la URL de la API</h3>
+        <p>Todas las solicitudes se dirigen a una URL base que incluye tu App ID y el nombre de la tabla.</p>
+        <pre><code>https://api.appsheet.com/api/v2/apps/{appId}/tables/{tableName}/Action</code></pre>
+        <ul>
+            <li><strong><code>{appId}</code></strong>: Tu identificador de aplicación.</li>
+            <li><strong><code>{tableName}</code></strong>: El nombre de la tabla donde harás la operación.</li>
+            <li><strong><code>Action</code></strong>: La operación que deseas realizar (e.g., `Add`, `Delete`, `Find`, `Update`).</li>
+        </ul>
+
+        <h3>3. Realizar una Solicitud a la API</h3>
+        <p>Cada solicitud debe incluir dos headers principales y un cuerpo JSON para la operación.</p>
+        <h4>Headers requeridos:</h4>
+        <pre><code>Content-Type: application/json
+ApplicationAccessKey: TU_CLAVE_DE_ACCESO</code></pre>
+
+        <h4>Ejemplo de Solicitud (Agregar una fila):</h4>
+        <p>Para añadir una nueva fila a una tabla, el cuerpo de la solicitud (request body) debe tener este formato:</p>
+        <pre><code>{
+  "Action": "Add",
+  "Properties": {},
+  "Rows": [
+    {
+      "Nombre_Columna1": "Valor1",
+      "Nombre_Columna2": "Valor2"
+    }
+  ]
+}</code></pre>
+        <p>Asegúrate de que los nombres de las columnas (`"Nombre_Columna1"`, etc.) coincidan exactamente con los de tu tabla en AppSheet.</p>
+
+        <h3>4. Solución de Problemas</h3>
+        <p>Si la solicitud falla, revisa los siguientes puntos:</p>
+        <ul>
+            <li>Verifica tus credenciales (`App ID` y `Application Access Key`).</li>
+            <li>Confirma que la sintaxis de tu JSON es correcta.</li>
+            <li>Asegúrate de que la API esté habilitada en tu aplicación de AppSheet.</li>
+        </ul>
+        <a href="https://www.youtube.com/watch?v=waLuHa1oRTo" class="cta-button">Ver Video Tutorial</a>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Tus Plugins de AppSheet. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="mailto:apiappsheet@cloud.com">apiappsheet@cloud.com</a></p>
+    </footer>
+
+</body>
+</html>

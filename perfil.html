@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Cliente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            background-color: #00796b;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .profile-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .profile-details img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .profile-details h2 {
+            color: #00796b;
+            margin-bottom: 10px;
+        }
+        .profile-details p {
+            margin: 8px 0;
+        }
+        .detail-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+        .detail-box h3 {
+            color: #00796b;
+            border-bottom: 1px solid #00796b;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .payment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .payment-table th, .payment-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .payment-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #555;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Perfil del Cliente</h1>
+    </header>
+
+    <div class="container">
+        <div class="profile-details">
+            <img src="pf.png" alt="Foto de Perfil Grande">
+            <h2>Web Media Powers</h2>
+            <p><strong>Correo Electrónico:</strong> it.tecnico2024@gmail.com</p>
+            <div class="detail-box">
+                <h3>Detalles del Plan</h3>
+                <p><strong>Plan Actual:</strong> Plan mensual Spark Jr</p>
+                <p><strong>Fecha de Inicio:</strong> 22 de agosto de 2025</p>
+                <p><strong>Próximo Pago:</strong> 21 de septiembre de 2025</p>
+                <p><strong>Precio del Plan:</strong> $53.89/mes</p>
+            </div>
+
+            <div class="detail-box">
+                <h3>Historial de Pagos</h3>
+                <table class="payment-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Descripción</th>
+                            <th>Método de Pago</th>
+                            <th>Costo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>22/08/2025</td>
+                            <td>03:00 PM</td>
+                            <td>Plan mensual Spark Jr</td>
+                            <td>Binance</td>
+                            <td>53.89</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="detail-box">
+                <h3>Acceso a Recursos</h3>
+                <p><strong>ID de Suscripción:</strong> WMP-2025-09-01-A</p>
+                <p><strong>Plugins Activados:</strong> Generación de PDF, Notificaciones Avanzadas, Integración con APIs</p>
+                <p><strong>Licencia:</strong> Activada</p>
+            </div>
+        </div>
+        <a href="index.html" class="back-button">← Volver a la página principal</a>
+    </div>
+
+</body>
+</html>
