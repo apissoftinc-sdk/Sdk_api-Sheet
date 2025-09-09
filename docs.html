@@ -1,132 +1,160 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentación de la API de AppSheet</title>
+    <title>Attio CRM API Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #513C8D;
+            --secondary-color: #F8F8F8;
+            --accent-color: #5C6BC0;
+            --text-color: #333;
+            --subtle-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            --border-radius: 12px;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #F0F2F5;
+            color: var(--text-color);
             line-height: 1.6;
         }
         .header {
-            background-color: #00796b;
+            background-color: var(--primary-color);
             color: white;
-            padding: 1rem 0;
+            padding: 2rem 0;
             text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
         }
         .container {
             max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
+            margin: 2rem auto;
+            padding: 2rem;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: var(--border-radius);
+            box-shadow: var(--subtle-shadow);
         }
-        h1, h2, h3 {
-            color: #00796b;
+        h2, h3 {
+            color: var(--primary-color);
         }
-        h1 {
-            border-bottom: 2px solid #00796b;
-            padding-bottom: 10px;
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
         }
         pre {
-            background-color: #e8e8e8;
-            padding: 15px;
-            border-left: 4px solid #00796b;
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
             overflow-x: auto;
             white-space: pre-wrap;
             word-wrap: break-word;
+            border-radius: 4px;
         }
         .cta-button {
             display: inline-block;
-            background-color: #00796b;
+            background-color: var(--accent-color);
             color: white;
-            padding: 10px 20px;
+            padding: 1rem 2rem;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 2rem;
         }
         .cta-button:hover {
-            background-color: #004d40;
+            background-color: #4D59A1;
+        }
+        .list-unstyled {
+            list-style: none;
+            padding: 0;
         }
         .footer {
             text-align: center;
-            padding: 20px 0;
+            padding: 2rem 0;
             color: #777;
-            border-top: 1px solid #ddd;
-            margin-top: 40px;
+        }
+        .footer a {
+            color: #777;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <h1>📖 Documentación de la API de AppSheet</h1>
-        <p>Guía completa para la integración de tus plugins</p>
+        <h1>Attio CRM API Documentation</h1>
+        <p>A comprehensive guide for integrating your CRM data</p>
     </header>
 
     <div class="container">
-        <a href="index.html" class="cta-button">← Volver a los Planes</a>
+        <a href="index.html" class="cta-button" style="margin-top: 0;">← Back to Dashboard</a>
         
-        <h2>Cómo Funciona la Integración</h2>
-        <p>La API de AppSheet es una interfaz <strong>RESTful</strong> que permite a servicios externos interactuar con una aplicación de AppSheet. Con la API, puedes automatizar procesos y sincronizar datos en tiempo real.</p>
+        <h2>How API Integration Works</h2>
+        <p>The Attio CRM API is a <strong>RESTful</strong> interface that allows external services to interact with your CRM data. With the API, you can automate processes and synchronize data in real-time.</p>
         
-        <h3>1. Habilitar la API y Obtener Credenciales</h3>
-        <p>Para conectar tu aplicación, necesitas el **App ID** y la **Application Access Key**. Sigue estos pasos:</p>
+        <h3>1. Enable the API and Get Credentials</h3>
+        <p>To connect your application, you need the **App ID** and the **Application Access Key**. Follow these steps:</p>
         <ol>
-            <li>Inicia sesión en AppSheet y abre tu aplicación.</li>
-            <li>Ve a <strong>`Settings` > `Integrations`</strong>.</li>
-            <li>En la sección <strong>`IN: from cloud services to your app`</strong>, activa **`Enable`**.</li>
-            <li>Copia el **`App ID`** y crea una **`Application Access Key`**. Guarda esta clave en un lugar seguro.</li>
+            <li>Sign in to Attio and navigate to your CRM project.</li>
+            <li>Go to <strong>`Settings` > `API Integrations`</strong>.</li>
+            <li>In the <strong>`API Access`</strong> section, activate **`Enable`**.</li>
+            <li>Copy the **`App ID`** and create an **`API Access Key`**. Store this key securely.</li>
         </ol>
 
-        <h3>2. Estructura de la URL de la API</h3>
-        <p>Todas las solicitudes se dirigen a una URL base que incluye tu App ID y el nombre de la tabla.</p>
-        <pre><code>https://api.appsheet.com/api/v2/apps/{appId}/tables/{tableName}/Action</code></pre>
-        <ul>
-            <li><strong><code>{appId}</code></strong>: Tu identificador de aplicación.</li>
-            <li><strong><code>{tableName}</code></strong>: El nombre de la tabla donde harás la operación.</li>
-            <li><strong><code>Action</code></strong>: La operación que deseas realizar (e.g., `Add`, `Delete`, `Find`, `Update`).</li>
+        <h3>2. API URL Structure</h3>
+        <p>All requests are directed to a base URL that includes your App ID and the data type you want to interact with.</p>
+        <pre><code>https://api.attio.com/api/v2/apps/{appId}/data/{dataType}/Action</code></pre>
+        <ul class="list-unstyled">
+            <li><strong><code>{appId}</code></strong>: Your unique application ID.</li>
+            <li><strong><code>{dataType}</code></strong>: The type of data you want to interact with (e.g., `Leads`, `Contacts`, `Accounts`).</li>
+            <li><strong><code>Action</code></strong>: The operation to perform (e.g., `Create`, `Read`, `Update`, `Delete`).</li>
         </ul>
 
-        <h3>3. Realizar una Solicitud a la API</h3>
-        <p>Cada solicitud debe incluir dos headers principales y un cuerpo JSON para la operación.</p>
-        <h4>Headers requeridos:</h4>
+        <h3>3. Making an API Request</h3>
+        <p>Each request must include two main headers and a JSON body for the operation.</p>
+        <h4>Required Headers:</h4>
         <pre><code>Content-Type: application/json
-ApplicationAccessKey: TU_CLAVE_DE_ACCESO</code></pre>
+ApplicationAccessKey: YOUR_ACCESS_KEY</code></pre>
 
-        <h4>Ejemplo de Solicitud (Agregar una fila):</h4>
-        <p>Para añadir una nueva fila a una tabla, el cuerpo de la solicitud (request body) debe tener este formato:</p>
+        <h4>Example Request (Creating a new lead):</h4>
+        <p>To add a new lead, the request body should have this format:</p>
         <pre><code>{
-  "Action": "Add",
+  "Action": "Create",
   "Properties": {},
-  "Rows": [
+  "Data": [
     {
-      "Nombre_Columna1": "Valor1",
-      "Nombre_Columna2": "Valor2"
+      "Name": "John Doe",
+      "Email": "john.doe@example.com",
+      "Source": "Website"
     }
   ]
 }</code></pre>
-        <p>Asegúrate de que los nombres de las columnas (`"Nombre_Columna1"`, etc.) coincidan exactamente con los de tu tabla en AppSheet.</p>
+        <p>Ensure that the field names (`"Name"`, `"Email"`, etc.) exactly match those in your Attio CRM.</p>
 
-        <h3>4. Solución de Problemas</h3>
-        <p>Si la solicitud falla, revisa los siguientes puntos:</p>
-        <ul>
-            <li>Verifica tus credenciales (`App ID` y `Application Access Key`).</li>
-            <li>Confirma que la sintaxis de tu JSON es correcta.</li>
-            <li>Asegúrate de que la API esté habilitada en tu aplicación de AppSheet.</li>
+        <h3>4. Troubleshooting</h3>
+        <p>If the request fails, check the following points:</p>
+        <ul class="list-unstyled">
+            <li>Verify your credentials (`App ID` and `API Access Key`).</li>
+            <li>Confirm that your JSON syntax is correct.</li>
+            <li>Make sure the API is enabled in your Attio CRM settings.</li>
         </ul>
-        <a href="https://www.youtube.com/watch?v=waLuHa1oRTo" class="cta-button">Ver Video Tutorial</a>
+        <a href="https://www.youtube.com/watch?v=gjYSthuuDko" class="cta-button">Watch Video Tutorial</a>
     </div>
 
     <footer class="footer">
-        <p>&copy; 2025 Tus Plugins de AppSheet. Todos los derechos reservados.</p>
-        <p>Contacto: <a href="mailto:apiappsheet@cloud.com">apiappsheet@cloud.com</a></p>
+        <p>&copy; 2025 Attio API. All rights reserved.</p>
+        <p>Contact: <a href="mailto:api-support@attio.com">api-support@attio.com</a></p>
     </footer>
 
 </body>

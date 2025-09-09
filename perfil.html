@@ -1,69 +1,84 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil del Cliente</title>
+    <title>My Attio CRM Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #513C8D;
+            --secondary-color: #F8F8F8;
+            --accent-color: #5C6BC0;
+            --text-color: #333;
+            --subtle-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            --border-radius: 12px;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #F0F2F5;
+            color: var(--text-color);
         }
         .header {
-            background-color: #00796b;
+            background-color: var(--primary-color);
             color: white;
-            padding: 1rem 0;
+            padding: 2rem 0;
             text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
         }
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
+            max-width: 900px;
+            margin: -4rem auto 2rem;
+            padding: 3rem;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: var(--border-radius);
+            box-shadow: var(--subtle-shadow);
         }
-        .profile-details {
+        .profile-details-page {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
-        .profile-details img {
-            width: 150px;
-            height: 150px;
+        .profile-details-page img {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
-        .profile-details h2 {
-            color: #00796b;
-            margin-bottom: 10px;
-        }
-        .profile-details p {
-            margin: 8px 0;
+        .profile-details-page h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
         }
         .detail-box {
             border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-top: 1.5rem;
             width: 100%;
             box-sizing: border-box;
             text-align: left;
+            background-color: var(--secondary-color);
         }
         .detail-box h3 {
-            color: #00796b;
-            border-bottom: 1px solid #00796b;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
         .payment-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin-top: 1rem;
         }
         .payment-table th, .payment-table td {
             border: 1px solid #ddd;
@@ -77,54 +92,56 @@
         }
         .back-button {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #00796b;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: var(--accent-color);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
+            font-weight: 600;
         }
         .back-button:hover {
-            background-color: #004d40;
+            background-color: #4D59A1;
         }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <h1>Perfil del Cliente</h1>
+        <h1>My Attio CRM Account</h1>
     </header>
 
     <div class="container">
-        <div class="profile-details">
-            <img src="pf.png" alt="Foto de Perfil Grande">
+        <div class="profile-details-page">
+            <img src="pf.png" alt="Profile Picture">
             <h2>Web Media Powers</h2>
-            <p><strong>Correo Electrónico:</strong> it.tecnico2024@gmail.com</p>
+            <p><strong>Email Address:</strong> it.tecnico2024@gmail.com</p>
+            
             <div class="detail-box">
-                <h3>Detalles del Plan</h3>
-                <p><strong>Plan Actual:</strong> Plan mensual Spark Jr</p>
-                <p><strong>Fecha de Inicio:</strong> 22 de agosto de 2025</p>
-                <p><strong>Próximo Pago:</strong> 21 de septiembre de 2025</p>
-                <p><strong>Precio del Plan:</strong> $53.89/mes</p>
+                <h3>Plan Details</h3>
+                <p><strong>Current Plan:</strong> Monthly Basic CRM API</p>
+                <p><strong>Start Date:</strong> August 22, 2025</p>
+                <p><strong>Next Payment:</strong> September 21, 2025</p>
+                <p><strong>Plan Price:</strong> $53.89/mo</p>
             </div>
 
             <div class="detail-box">
-                <h3>Historial de Pagos</h3>
+                <h3>Payment History</h3>
                 <table class="payment-table">
                     <thead>
                         <tr>
-                            <th>Fecha</th>
-                            <th>Hora</th>
-                            <th>Descripción</th>
-                            <th>Método de Pago</th>
-                            <th>Costo</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Description</th>
+                            <th>Payment Method</th>
+                            <th>Cost</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>22/08/2025</td>
+                            <td>08/22/2025</td>
                             <td>03:00 PM</td>
-                            <td>Plan mensual Spark Jr</td>
+                            <td>Monthly Basic CRM API</td>
                             <td>Binance</td>
                             <td>53.89</td>
                         </tr>
@@ -133,14 +150,13 @@
             </div>
 
             <div class="detail-box">
-                <h3>Acceso a Recursos</h3>
-                <p><strong>ID de Suscripción:</strong> WMP-2025-09-01-A</p>
-                <p><strong>Plugins Activados:</strong> Generación de PDF, Notificaciones Avanzadas, Integración con APIs</p>
-                <p><strong>Licencia:</strong> Activada</p>
+                <h3>Resource Access</h3>
+                <p><strong>Subscription ID:</strong> WMP-2025-09-01-A</p>
+                <p><strong>Active Integrations:</strong> Lead Management, Task Creation, Salesforce Sync</p>
+                <p><strong>License Status:</strong> Active</p>
             </div>
         </div>
-        <a href="index.html" class="back-button">← Volver a la página principal</a>
+        <a href="index.html" class="back-button">← Back to Dashboard</a>
     </div>
-
 </body>
 </html>
