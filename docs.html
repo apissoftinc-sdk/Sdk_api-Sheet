@@ -3,159 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attio CRM API Documentation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>GitHub Complements Documentation</title>
     <style>
-        :root {
-            --primary-color: #513C8D;
-            --secondary-color: #F8F8F8;
-            --accent-color: #5C6BC0;
-            --text-color: #333;
-            --subtle-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            --border-radius: 12px;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F0F2F5;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        .header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-        }
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--subtle-shadow);
-        }
-        h2, h3 {
-            color: var(--primary-color);
-        }
-        h2 {
-            font-size: 2rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        pre {
-            background-color: var(--secondary-color);
-            padding: 1rem;
-            border-left: 4px solid var(--accent-color);
-            overflow-x: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            border-radius: 4px;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 2rem;
-        }
-        .cta-button:hover {
-            background-color: #4D59A1;
-        }
-        .list-unstyled {
-            list-style: none;
-            padding: 0;
-        }
-        .footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: #777;
-        }
-        .footer a {
-            color: #777;
-            text-decoration: none;
-        }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f0f2f5; }
+        .header { background-color: #24292e; color: white; padding: 20px; text-align: center; }
+        .header h1 { margin: 0; font-size: 24px; }
+        .container { max-width: 900px; margin: 20px auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .doc-section { margin-bottom: 20px; }
+        .doc-section h2 { border-bottom: 2px solid #ddd; padding-bottom: 10px; color: #24292e; }
+        .doc-section h3 { color: #0366d6; }
+        .back-button { display: inline-block; padding: 10px 15px; background-color: #0366d6; color: white; text-decoration: none; border-radius: 5px; }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <h1>Attio CRM API Documentation</h1>
-        <p>A comprehensive guide for integrating your CRM data</p>
+        <h1>GitHub Complements Documentation</h1>
     </header>
 
     <div class="container">
-        <a href="index.html" class="cta-button" style="margin-top: 0;">← Back to Dashboard</a>
+        <a href="dashboard.html" class="back-button">← Back to Dashboard</a>
         
-        <h2>How API Integration Works</h2>
-        <p>The Attio CRM API is a <strong>RESTful</strong> interface that allows external services to interact with your CRM data. With the API, you can automate processes and synchronize data in real-time.</p>
-        
-        <h3>1. Enable the API and Get Credentials</h3>
-        <p>To connect your application, you need the **App ID** and the **Application Access Key**. Follow these steps:</p>
-        <ol>
-            <li>Sign in to Attio and navigate to your CRM project.</li>
-            <li>Go to <strong>`Settings` > `API Integrations`</strong>.</li>
-            <li>In the <strong>`API Access`</strong> section, activate **`Enable`**.</li>
-            <li>Copy the **`App ID`** and create an **`API Access Key`**. Store this key securely.</li>
-        </ol>
+        <div class="doc-section">
+            <h2>How to Install and Use</h2>
+            <h3>1. Getting Started</h3>
+            <p>To use our complements, you need to authenticate your GitHub account with our service. Follow these steps:</p>
+            <ol>
+                <li>Go to our **dashboard** and sign in with your account.</li>
+                <li>In your profile, generate an **API Key** for your GitHub account.</li>
+                <li>Copy the API Key and follow the instructions in your repository settings to enable the complement.</li>
+            </ol>
+        </div>
 
-        <h3>2. API URL Structure</h3>
-        <p>All requests are directed to a base URL that includes your App ID and the data type you want to interact with.</p>
-        <pre><code>https://api.attio.com/api/v2/apps/{appId}/data/{dataType}/Action</code></pre>
-        <ul class="list-unstyled">
-            <li><strong><code>{appId}</code></strong>: Your unique application ID.</li>
-            <li><strong><code>{dataType}</code></strong>: The type of data you want to interact with (e.g., `Leads`, `Contacts`, `Accounts`).</li>
-            <li><strong><code>Action</code></strong>: The operation to perform (e.g., `Create`, `Read`, `Update`, `Delete`).</li>
-        </ul>
-
-        <h3>3. Making an API Request</h3>
-        <p>Each request must include two main headers and a JSON body for the operation.</p>
-        <h4>Required Headers:</h4>
-        <pre><code>Content-Type: application/json
-ApplicationAccessKey: YOUR_ACCESS_KEY</code></pre>
-
-        <h4>Example Request (Creating a new lead):</h4>
-        <p>To add a new lead, the request body should have this format:</p>
-        <pre><code>{
-  "Action": "Create",
-  "Properties": {},
-  "Data": [
-    {
-      "Name": "John Doe",
-      "Email": "john.doe@example.com",
-      "Source": "Website"
-    }
-  ]
-}</code></pre>
-        <p>Ensure that the field names (`"Name"`, `"Email"`, etc.) exactly match those in your Attio CRM.</p>
-
-        <h3>4. Troubleshooting</h3>
-        <p>If the request fails, check the following points:</p>
-        <ul class="list-unstyled">
-            <li>Verify your credentials (`App ID` and `API Access Key`).</li>
-            <li>Confirm that your JSON syntax is correct.</li>
-            <li>Make sure the API is enabled in your Attio CRM settings.</li>
-        </ul>
-        <a href="https://www.youtube.com/watch?v=gjYSthuuDko" class="cta-button">Watch Video Tutorial</a>
+        <div class="doc-section">
+            <h2>API Endpoints</h2>
+            <pre><code>POST https://api.github-complements.com/api/v1/repos/{repoId}/labels</code></pre>
+            <p>Example: This automatically assigns a `bug` label to a new issue.</p>
+        </div>
     </div>
-
-    <footer class="footer">
-        <p>&copy; 2025 Attio API. All rights reserved.</p>
-        <p>Contact: <a href="mailto:api-support@attio.com">api-support@attio.com</a></p>
-    </footer>
 
 </body>
 </html>

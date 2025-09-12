@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - GitHub Complements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f4f6f9;
+      color: #333;
+    }
+    .header {
+      background-color: #24292e;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header h1 {
+      margin: 0; font-size: 22px;
+    }
+    .profile-info {
+      font-size: 14px;
+    }
+    .profile-info a {
+      color: #58a6ff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+    .profile-info a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      color: #24292e;
+    }
+    .pricing-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .plan-card {
+      flex: 1;
+      min-width: 280px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+      background: #fafafa;
+    }
+    .plan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .plan-card h3 {
+      color: #0366d6;
+      margin-bottom: 10px;
+    }
+    .plan-card .price {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .plan-card ul {
+      text-align: left;
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+    .plan-card ul li {
+      margin: 8px 0;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #0366d6;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .cta-button:hover {
+      background: #024f9d;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>GitHub Complements Dashboard</h1>
+    <div class="profile-info">
+      <span id="user-display">Cargando...</span>
+      <a href="perfil.html">Mi Perfil</a>
+      <a href="index.html">Cerrar sesión</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Planes y Suscripciones</h2>
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <h3>Plan Básico Mensual</h3>
+        <p class="price">$53.89</p>
+        <ul>
+          <li>Acceso a hooks avanzados de Git</li>
+          <li>Integración estándar CI/CD</li>
+          <li>1 repositorio privado</li>
+          <li>Actualizaciones mensuales</li>
+        </ul>
+        <a href="https://s.binance.com/6DYqx34R" class="cta-button">Elegir Plan</a>
+      </div>
+
+      <div class="plan-card">
+        <h3>Plan Estándar Trimestral</h3>
+        <p class="price">$289</p>
+        <ul>
+          <li>Repositorios ilimitados</li>
+          <li>Soporte prioritario 24/7</li>
+          <li>Integraciones con servicios externos</li>
+          <li>Reportes de rendimiento</li>
+        </ul>
+        <a href="https://s.binance.com/6DYqx34R" class="cta-button">Elegir Plan</a>
+      </div>
+
+      <div class="plan-card">
+        <h3>Plan Empresarial de por Vida</h3>
+        <p class="price">$580</p>
+        <ul>
+          <li>Acceso de por vida sin renovaciones</li>
+          <li>Gestor de cuentas dedicado</li>
+          <li>Funciones avanzadas de seguridad</li>
+          <li>Consultoría técnica personalizada</li>
+        </ul>
+        <a href="https://s.binance.com/dZNm3feu" class="cta-button">Elegir Plan</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBHh9wVVYBe9wF4jr9AXk_KIVkrs6EZbh0",
+      authDomain: "autpage-d1353.firebaseapp.com",
+      projectId: "autpage-d1353",
+      storageBucket: "autpage-d1353.firebasestorage.app",
+      messagingSenderId: "171366854093",
+      appId: "1:171366854093:web:29bba0030790d568b86884",
+      measurementId: "G-R0RFQQZ8QS"
+    };
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        window.location.href = 'index.html';
+      } else {
+        db.collection("users").doc(user.uid).get().then((doc) => {
+          if (doc.exists) {
+            const userData = doc.data();
+            document.getElementById('user-display').textContent = `Cliente: ${userData.client}`;
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

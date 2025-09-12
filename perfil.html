@@ -1,162 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Attio CRM Account</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #513C8D;
-            --secondary-color: #F8F8F8;
-            --accent-color: #5C6BC0;
-            --text-color: #333;
-            --subtle-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            --border-radius: 12px;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F0F2F5;
-            color: var(--text-color);
-        }
-        .header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-        }
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        .container {
-            max-width: 900px;
-            margin: -4rem auto 2rem;
-            padding: 3rem;
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--subtle-shadow);
-        }
-        .profile-details-page {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .profile-details-page img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 1.5rem;
-        }
-        .profile-details-page h2 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        .detail-box {
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            padding: 1rem;
-            margin-top: 1.5rem;
-            width: 100%;
-            box-sizing: border-box;
-            text-align: left;
-            background-color: var(--secondary-color);
-        }
-        .detail-box h3 {
-            color: var(--accent-color);
-            border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .payment-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        .payment-table th, .payment-table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        .payment-table th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-            color: #555;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1rem 2rem;
-            background-color: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-        }
-        .back-button:hover {
-            background-color: #4D59A1;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Perfil - GitHub Complements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f4f6f9;
+      color: #333;
+    }
+    .header {
+      background-color: #24292e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0; font-size: 24px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .profile-details {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .profile-details img {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 4px solid #0366d6;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .profile-details h2 {
+      margin: 15px 0 5px;
+      font-size: 22px;
+      color: #24292e;
+    }
+    .profile-details p {
+      margin: 5px 0;
+      color: #555;
+    }
+    .info-box {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+    .info-box h3 {
+      color: #0366d6;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table th, table td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    table th {
+      background: #f4f6f9;
+    }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .btn-dashboard {
+      background: #0366d6; color: white;
+    }
+    .btn-dashboard:hover {
+      background: #024f9d;
+    }
+    .btn-logout {
+      background: #d9534f; color: white;
+    }
+    .btn-logout:hover {
+      background: #b52b27;
+    }
+  </style>
 </head>
 <body>
+  <header class="header">
+    <h1>Mi Perfil</h1>
+  </header>
 
-    <header class="header">
-        <h1>My Attio CRM Account</h1>
-    </header>
-
-    <div class="container">
-        <div class="profile-details-page">
-            <img src="pf.png" alt="Profile Picture">
-            <h2>Web Media Powers</h2>
-            <p><strong>Email Address:</strong> it.tecnico2024@gmail.com</p>
-            
-            <div class="detail-box">
-                <h3>Plan Details</h3>
-                <p><strong>Current Plan:</strong> Monthly Basic CRM API</p>
-                <p><strong>Start Date:</strong> August 22, 2025</p>
-                <p><strong>Next Payment:</strong> September 21, 2025</p>
-                <p><strong>Plan Price:</strong> $53.89/mo</p>
-            </div>
-
-            <div class="detail-box">
-                <h3>Payment History</h3>
-                <table class="payment-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Description</th>
-                            <th>Payment Method</th>
-                            <th>Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>08/22/2025</td>
-                            <td>03:00 PM</td>
-                            <td>Monthly Basic CRM API</td>
-                            <td>Binance</td>
-                            <td>53.89</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="detail-box">
-                <h3>Resource Access</h3>
-                <p><strong>Subscription ID:</strong> WMP-2025-09-01-A</p>
-                <p><strong>Active Integrations:</strong> Lead Management, Task Creation, Salesforce Sync</p>
-                <p><strong>License Status:</strong> Active</p>
-            </div>
-        </div>
-        <a href="index.html" class="back-button">← Back to Dashboard</a>
+  <div class="container">
+    <div class="profile-details">
+      <img src="pf.png" alt="Foto de Perfil">
+      <h2 id="client-name">Cargando...</h2>
+      <p><strong>Email:</strong> <span id="client-email">Cargando...</span></p>
     </div>
+
+    <div class="info-box">
+      <h3>Detalles del Plan</h3>
+      <table>
+        <tr><th>Plan actual</th><td id="client-plan">Cargando...</td></tr>
+        <tr><th>Fecha de inicio</th><td>22/08/2025</td></tr>
+        <tr><th>Próximo pago</th><td>21/09/2025</td></tr>
+        <tr><th>Precio</th><td>$53.89 / mes</td></tr>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <h3>Historial de Pagos</h3>
+      <table>
+        <tr>
+          <th>Fecha</th>
+          <th>Descripción</th>
+          <th>Costo</th>
+        </tr>
+        <tr>
+          <td>22/08/2025</td>
+          <td>Plan Básico Mensual</td>
+          <td>$53.89</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="buttons">
+      <a href="dashboard.html" class="btn btn-dashboard">← Volver al Dashboard</a>
+      <a href="#" onclick="logout()" class="btn btn-logout">Cerrar sesión</a>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBHh9wVVYBe9wF4jr9AXk_KIVkrs6EZbh0",
+      authDomain: "autpage-d1353.firebaseapp.com",
+      projectId: "autpage-d1353",
+      storageBucket: "autpage-d1353.firebasestorage.app",
+      messagingSenderId: "171366854093",
+      appId: "1:171366854093:web:29bba0030790d568b86884",
+      measurementId: "G-R0RFQQZ8QS"
+    };
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    window.onload = function () {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+          window.location.href = 'index.html';
+        } else {
+          db.collection("users").doc(user.uid).get()
+            .then((doc) => {
+              if (doc.exists) {
+                const userData = doc.data();
+                console.log("Datos del usuario:", userData);
+
+                document.getElementById('client-name').textContent =
+                  userData.client || "Nombre no disponible";
+                document.getElementById('client-email').textContent =
+                  userData.email || "Correo no disponible";
+                document.getElementById('client-plan').textContent =
+                  userData.planId || "Plan no asignado";
+              } else {
+                document.getElementById('client-name').textContent = "Perfil incompleto";
+                document.getElementById('client-email').textContent = "No hay datos registrados";
+                document.getElementById('client-plan').textContent = "Plan sin asignar";
+                console.warn("No se encontró documento en la colección 'users'");
+              }
+            })
+            .catch((error) => {
+              console.error("Error al obtener datos:", error);
+              document.getElementById('client-name').textContent = "Error al cargar datos";
+              document.getElementById('client-email').textContent = "—";
+              document.getElementById('client-plan').textContent = "—";
+            });
+        }
+      });
+    };
+
+    function logout() {
+      firebase.auth().signOut().then(() => {
+        window.location.href = 'index.html';
+      });
+    }
+  </script>
 </body>
 </html>

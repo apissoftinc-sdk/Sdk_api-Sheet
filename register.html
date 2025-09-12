@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Complements Login</title>
+    <title>Sign Up | GitHub Complements</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f2f5; margin: 0; padding: 50px; }
         .auth-container { max-width: 400px; margin: 0 auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
@@ -17,12 +17,13 @@
 <body>
 
     <div class="auth-container">
-        <h2>GitHub Complements Login</h2>
-        <input type="email" id="login-email" placeholder="Email Address">
-        <input type="password" id="login-password" placeholder="Password">
-        <button onclick="loginUser()">Sign In</button>
-        <p class="error-message" id="login-error-message"></p>
-        <p class="toggle-auth">Don't have an account? <a href="register.html">Sign Up</a></p>
+        <h2>GitHub Complements Sign Up</h2>
+        <input type="text" id="register-client-name" placeholder="Client Name">
+        <input type="email" id="register-email" placeholder="Email Address">
+        <input type="password" id="register-password" placeholder="Password">
+        <button onclick="registerUser()">Sign Up</button>
+        <p class="error-message" id="register-error-message"></p>
+        <p class="toggle-auth">Already have an account? <a href="index.html">Sign In</a></p>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
@@ -42,19 +43,29 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
 
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                window.location.href = 'dashboard.html';
-            }
-        });
-        function loginUser() {
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            const errorMessage = document.getElementById('login-error-message');
+        function registerUser() {
+            const clientName = document.getElementById('register-client-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const errorMessage = document.getElementById('register-error-message');
             errorMessage.textContent = '';
-            firebase.auth().signInWithEmailAndPassword(email, password)
-                .then(() => { window.location.href = 'dashboard.html'; })
-                .catch((error) => { errorMessage.textContent = error.message; });
+
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    db.collection("users").doc(user.uid).set({
+                        client: clientName,
+                        email: email,
+                        planId: "Monthly Basic Plan"
+                    }).then(() => {
+                        alert("Account created successfully! You will be redirected to sign in.");
+                        window.location.href = 'index.html';
+                    });
+                })
+                .catch((error) => {
+                    errorMessage.textContent = error.message;
+                    alert("Error signing up: " + error.message);
+                });
         }
     </script>
 </body>
